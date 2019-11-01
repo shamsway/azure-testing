@@ -13,3 +13,5 @@ steps:
 - task: PowerShell@2
   inputs:
     filePath: 'dbcc.ps1'
+  env:
+    KEY: $(key)
