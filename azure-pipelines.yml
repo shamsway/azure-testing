@@ -8,7 +8,8 @@ trigger:
 
 pool:
   name: MyKewlPool
-  
+
+steps:
 - task: PowerShell@2
   inputs:
     filePath: 'dbcc.ps1'
