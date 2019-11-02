@@ -11,6 +11,7 @@ pool:
 
 steps:
 - task: PowerShell@2
+  pwsh: true
   inputs:
     filePath: 'dbcc.ps1'
   env:
