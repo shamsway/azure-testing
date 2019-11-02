@@ -74,6 +74,7 @@ Write-Output "Cloud Mount Status: $($cloudmounttask.status)"
 $azmounts = Invoke-RubrikRESTCall -Endpoint "cloud_on/azure/instance" -Method GET -api internal
 if($azmounts.count -eq 0 ) { throw "No Azure Cloud Mounts Found" }
 $azvm = ($azmounts.data | Where-Object { $_.snappableId -eq $vm.id} )
+if($azvm.count -gt 1 ) { throw "Multiple Cloud Mounts Found - Please clean up" }
 if($null -eq $azvm) { throw "Could not find Cloud Mount for $($vm.name)" }
 
 Write-Output "Cloud Mount IP: $($azvm.privateIpAddress)"
